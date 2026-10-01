@@ -52,6 +52,8 @@ The script validates the source schema, checks ranges and duplicate keys, applie
 
 Occupational similarity is descriptive. It is not a measure of an individual's potential, hiring probability, expected pay, or causal career success.
 
-## Data attribution
+## Data attribution and modifications
 
-O*NET 31.0 data are from the National Center for O*NET Development and are available under the [O*NET database license](https://www.onetcenter.org/license_db.html). O*NET is a trademark of the U.S. Department of Labor, Employment and Training Administration.
+O*NET 31.0 Database content is used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with attribution to the U.S. Department of Labor, Employment and Training Administration. O*NET is a trademark of USDOL/ETA. See the official [O*NET database license](https://www.onetcenter.org/license_db.html).
+
+This project modifies the source data through suppression-based filtering, feature standardization, PCA, similarity ranking, clustering, and an analyst-created grouping of software tools. These modifications are not endorsed by or affiliated with USDOL/ETA.
