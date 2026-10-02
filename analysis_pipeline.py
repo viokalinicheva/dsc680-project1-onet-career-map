@@ -1,4 +1,4 @@
-"""DSC 680 Project 1, Milestone 2: reproducible O*NET analysis.
+"""Reproducible O*NET career-pathways analysis.
 
 The pipeline deliberately separates intake/validation, cleaning, analysis, and
 communication. It uses O*NET 31.0 Importance (IM) ratings for four domains and
@@ -20,6 +20,8 @@ from itertools import combinations
 from pathlib import Path
 
 import matplotlib as mpl
+if "__file__" in globals() and not os.environ.get("MPLBACKEND"):
+    mpl.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -43,15 +45,15 @@ from sklearn.preprocessing import StandardScaler
 
 
 # %% 1. Configuration and provenance
-PROJECT_ROOT = Path(os.environ.get("DSC680_PROJECT_ROOT", Path.cwd())).resolve()
+PROJECT_ROOT = Path(os.environ.get("ONET_PROJECT_ROOT", Path.cwd())).resolve()
 DATA_DIR = Path(
     os.environ.get(
         "ONET_DATA_DIR",
-        PROJECT_ROOT / "work/dsc680_project_screen/onet31/db_31_0_excel",
+        PROJECT_ROOT / "data" / "db_31_0_excel",
     )
 )
 ARCHIVE_PATH = DATA_DIR.parent / "db_31_0_excel.zip"
-RUN_DIR = Path(os.environ.get("DSC680_RUN_DIR", PROJECT_ROOT / "work/dsc680_milestone2"))
+RUN_DIR = Path(os.environ.get("ONET_RUN_DIR", PROJECT_ROOT / "analysis_output"))
 RESULTS_DIR = RUN_DIR / "results"
 FIGURES_DIR = RUN_DIR / "figures"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
